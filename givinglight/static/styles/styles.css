@@ -1,0 +1,374 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* General Styles for Navbar */
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+}
+
+
+.navbar .logo img {
+    height: 40px; /* Adjust height to fit your design */
+    width: auto; /* Maintain aspect ratio */
+    display: block; /* Prevent inline gap issues */
+}
+
+
+@media (max-width: 768px) {
+    .navbar .logo img {
+        height: 35px; /* Slightly smaller for smaller screens */
+    }
+}
+
+.navbar .nav-links {
+    display: flex;
+    list-style: none;
+    transition: max-height 0.3s ease;
+    overflow: hidden;
+    line-height: 2.4;
+}
+
+.navbar .nav-links li {
+    margin: 0 10px;
+}
+
+.navbar .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.navbar .nav-links a:hover {
+    color: #ffcc00;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+}
+
+/* Navbar Small Screen Fix */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        z-index: 1100; /* Ensure hamburger is above content */
+        padding: 10px;
+    }
+
+    .hamburger span {
+        width: 30px;
+        height: 4px;
+        background-color: white;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center menu items horizontally */
+        justify-content: center; /* Center menu items vertically */
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.5s ease; /* Smooth animation */
+    }
+
+    .nav-links.active {
+        max-height: 300px; /* Adjust height as needed */
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .nav-links li {
+        margin: 15px 0; /* Space between menu items */
+    }
+
+    .nav-links a {
+        padding: 10px 20px;
+        color: white;
+        font-size: 1.2rem; /* Slightly larger font */
+        text-align: center;
+        transition: color 0.5s;
+    }
+
+    .nav-links a:hover {
+        color: #ffcc00; /* Highlight color */
+    }
+}
+
+
+
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://source.unsplash.com/featured/?community') center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.hero .btn {
+    background-color: #ffcc00;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.hero .btn:hover {
+    background-color: #e6b800;
+}
+
+/* About Section */
+.about {
+    padding: 50px 0;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.about p {
+    font-size: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* Programs Section */
+.programs {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+
+.programs h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.programs .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.programs .card {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.programs .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.programs .card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.programs .card p {
+    font-size: 1rem;
+}
+
+/* Target Groups Section */
+.target-groups {
+    padding: 50px 0;
+    background-color: #ffffff;
+}
+
+.target-groups h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.target-groups .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+
+.target-groups .card {
+    background-color: #ffcc00;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+/* Upcoming Events Section */
+.events {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.events h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.events .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.events .card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.events .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.events .btn-small {
+    background-color: #333;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.events .btn-small:hover {
+    background-color: #555;
+}
+
+/* Donation Section */
+.donate {
+    padding: 50px 0;
+    text-align: center;
+    background-color: #ffcc00;
+    color: black;
+}
+
+.donate h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.donate .btn {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.donate .btn:hover {
+    background-color: #555;
+}
+
+/* Footer */
+.footer {
+    padding: 20px 0;
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+
+.footer a {
+    color: #ffcc00;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.footer .socials {
+    margin-top: 10px;
+}
+
+.footer .socials a {
+    margin: 0 10px;
+}

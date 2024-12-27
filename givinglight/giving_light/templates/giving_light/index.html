@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giving Light to Society</title>
+    <meta name="description" content="Empowering students to achieve a 100% transition to university with focused, strategic learning.">
+    <meta name="keywords" content="Giving Light ,Giving , GivingLight, Light, Lightgiving">
+    <meta name="author" content="Humphrey Tuva">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="container">
+
+            <a href="#" class="logo">
+                <img src="{% static 'images\Gl_logo.jpg' %}" alt="Logo">
+            </a>
+
+                        <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#target-groups">Target Groups</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#donate">Donate</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <h1>Giving Light to Society</h1>
+            <p>Together, we can create a just and sustainable world for all.</p>
+            <a href="#donate" class="btn">Donate Now</a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>We focus on promoting equality, dignity, and opportunities for everyone through impactful initiatives like menstrual health, economic empowerment, and environmental conservation.</p>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="programs">
+        <div class="container">
+            <h2>Our Programs</h2>
+            <div class="cards">
+
+                {% for prog in program %}
+
+                <div class="card">
+                    <h3>{{prog.program}}</h3>
+                    <p>{{prog.description|linebreaksbr}}</p>
+                </div>
+
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Groups Section -->
+    <section id="target-groups" class="target-groups">
+        <div class="container">
+            <h2>Our Target Groups</h2>
+            <div class="cards">
+                <div class="card">Prisons & Juvenile Centres</div>
+                <div class="card">Schools</div>
+                <div class="card">Shelters & Rehabilitation Centres</div>
+                <div class="card">Rescue Centres</div>
+                <div class="card">Community Groups</div>
+                <div class="card">Rural & Informal Settlements</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events Section -->
+    <section id="events" class="events">
+        <div class="container">
+            <h2>Upcoming Events</h2>
+            <div class="cards">
+
+                {% for eve in event %}
+
+                <div class="card">
+                    <h3>{{eve.event}}</h3>
+                    <p>Date: {{eve.date}}</p>
+                    <p>Location: {{eve.location}}</p>
+                    <a href="#" class="btn-small">Learn More</a>
+                </div>
+
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section id="donate" class="donate">
+        <div class="container">
+            <h2>Support Our Mission</h2>
+            <p>Your donation helps us bring light to society.</p>
+            <a href="https://www.paypal.com" class="btn">Donate Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <p>Email: <a href="mailto:givinglightfnd@gmail.com">givinglightfnd@gmail.com</a></p>
+            <p>Location: Kasarani, Nairobi, Kenya</p>
+            <div class="socials">
+                <a href="#">LinkedIn</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+});
+
+
+    </script>
+</body>
+</html>
+{% endblock content %}
